@@ -3,12 +3,17 @@ package com.model;
 import java.math.BigDecimal;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-public class Stock {
+@Table(name = "stock")
+public class StockEntity {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private String sector;
@@ -18,12 +23,12 @@ public class Stock {
 	private String description;
 	
 
-	public Stock() {
+	public StockEntity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Stock(Long id, String name, String sector, String cusip,
+	public StockEntity(Long id, String name, String sector, String cusip,
 			BigDecimal price, Long marketCap, String description) {
 		super();
 		this.id = id;
